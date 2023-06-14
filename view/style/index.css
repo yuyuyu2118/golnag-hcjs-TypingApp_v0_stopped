@@ -1,0 +1,10 @@
+body {
+  font-family: sans-serif;
+}
+
+#start {
+  font-size: 3em;
+  text-align: center;
+  margin-top: 30vh;
+  background: aqua;
+}

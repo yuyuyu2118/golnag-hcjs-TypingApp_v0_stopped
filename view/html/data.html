@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="view/style/data.css">
+    <title>golang_template</title>
+</head>
+<body>
+    <h1>データページ</h1>
+    <a href='/'>トップへ戻る</a>
+    <table>
+        {{ range . }}
+        <tr>
+            <th>{{ .Label }}の気温</th>
+            <input type='hidden' id="label_value" value="{{ .Label }}">
+        </tr>
+        <tr>
+            <input type='hidden' id="data_value" value="{{ .Data }}">
+            {{ range .Data }}
+            <td style="display: inline;">{{ . }}度</td>
+            {{ end }}
+        </tr>
+        {{ end }}
+    </table>
+    <div style="width: 50%;">
+        <canvas id="temperatureChart"></canvas>
+    </div>
+    <script src="/view/static/main.js"></script>
+</body>
+</html>
